@@ -236,7 +236,6 @@ int criterion_handle_args(int argc, char *argv[], bool handle_unknown_arg) {
             case 'j': criterion_options.jobs              = atou(optarg); break;
             case 'f': criterion_options.fail_fast         = true; break;
             case 'S': criterion_options.short_filename    = true; break;
-            case 's': run_single_test_by_name(optarg); return 0;
             case 'p': criterion_options.pattern           = optarg; break;
             case 'q': quiet = true; break;
 
@@ -270,6 +269,9 @@ int criterion_handle_args(int argc, char *argv[], bool handle_unknown_arg) {
                 criterion_add_output(arg, path);
             } break;
             case 'w': criterion_options.wait_for_clients = true; break;
+            case 's':
+                fprintf(stderr, "--single has been removed. Use --debug instead.");
+                return 3;
             case '?':
             default : do_print_usage = handle_unknown_arg; break;
         }

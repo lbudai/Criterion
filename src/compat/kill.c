@@ -32,8 +32,6 @@
 #include <assert.h>
 #include <signal.h>
 
-static INLINE void nothing(void) {}
-
 #ifdef VANILLA_WIN32
 static HANDLE cr_job;
 #else
